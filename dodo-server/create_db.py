@@ -31,3 +31,16 @@ def create_tables():
 
 def create_users():
     User.create(name="Milica", lastname="Petkovic", email="milica@elfak.rs", password="123")
+
+def create_lists():
+    list_id = uuid.uuid4()
+    ListsByUser.create(list_id=list_id, user_email="milica@elfak.rs", list_name="shopping")
+
+    TasksByDate.create(date="2022-12-25", user_email="milica@elfak.rs", task_id=uuid.uuid4(), task="Databases exam")
+    TasksByDate.create(date="2022-12-25", user_email="milica@elfak.rs", task_id=uuid.uuid4(), task="Buy Christmas presents")
+
+    TasksByListId.create(list_id=list_id, user_email="milica@elfak.rs", task_id=uuid.uuid4(), task="Milk")
+    TasksByListId.create(list_id=list_id, user_email="milica@elfak.rs", task_id=uuid.uuid4(), task="Eggs")
+    TasksByListId.create(list_id=list_id, user_email="milica@elfak.rs", task_id=uuid.uuid4(), task="Rice")
+    TasksByListId.create(list_id=list_id, user_email="milica@elfak.rs", task_id=uuid.uuid4(), task="Soap")
+

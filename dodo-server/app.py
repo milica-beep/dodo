@@ -4,7 +4,7 @@ from flask_jwt_extended import JWTManager
 from routes.auth import auth
 from routes.task import task
 
-from create_db import create_tables, create_users
+from create_db import create_lists, create_tables, create_users
 
 app = Flask(__name__)
 CORS(app)
@@ -14,8 +14,9 @@ app.config['JWT_SECRET_KEY'] = 'super-secret'
 jwt = JWTManager(app)
 
 if __name__ == "__main__":
-   # create_tables()
-    create_users()
+    # create_tables()
+    # create_users()
+    # create_lists()
     app.register_blueprint(auth)
     app.register_blueprint(task)
 
