@@ -1,0 +1,14 @@
+<div class="mat-typography app-frame mat-app-background">
+  <header></header>
+  <app-header></app-header>
+  <app-login></app-login>
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened  position="end" class="sidebar">
+      <app-sidebar-content></app-sidebar-content>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <footer></footer>
+</div>

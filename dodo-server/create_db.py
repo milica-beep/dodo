@@ -10,6 +10,8 @@ from models.lists_by_user import ListsByUser
 from models.tasks_by_date import TasksByDate
 from models.tasks_by_list_id import TasksByListId
 from models.user import User
+from passlib.hash import sha256_crypt
+
 
 KEYSPACE = "dodo"
 
@@ -30,7 +32,7 @@ def create_tables():
     sync_table(TasksByDate)
 
 def create_users():
-    User.create(name="Milica", lastname="Petkovic", email="milica@elfak.rs", password="123")
+    User.create(name="Milica", lastname="Petkovic", email="milica@elfak.rs", password=sha256_crypt.hash("123"))
 
 def create_lists():
     list_id = uuid.uuid4()
@@ -39,8 +41,8 @@ def create_lists():
     TasksByDate.create(date="2022-12-25", user_email="milica@elfak.rs", task_id=uuid.uuid4(), task="Databases exam")
     TasksByDate.create(date="2022-12-25", user_email="milica@elfak.rs", task_id=uuid.uuid4(), task="Buy Christmas presents")
 
-    TasksByListId.create(list_id=list_id, user_email="milica@elfak.rs", task_id=uuid.uuid4(), task="Milk")
-    TasksByListId.create(list_id=list_id, user_email="milica@elfak.rs", task_id=uuid.uuid4(), task="Eggs")
-    TasksByListId.create(list_id=list_id, user_email="milica@elfak.rs", task_id=uuid.uuid4(), task="Rice")
-    TasksByListId.create(list_id=list_id, user_email="milica@elfak.rs", task_id=uuid.uuid4(), task="Soap")
+    TasksByListId.create(list_id=list_id, user_email="milica@elfak.rs", task_id=uuid.uuid4(), task="Milk", list_name="shopping")
+    TasksByListId.create(list_id=list_id, user_email="milica@elfak.rs", task_id=uuid.uuid4(), task="Eggs", list_name="shopping")
+    TasksByListId.create(list_id=list_id, user_email="milica@elfak.rs", task_id=uuid.uuid4(), task="Rice", list_name="shopping")
+    TasksByListId.create(list_id=list_id, user_email="milica@elfak.rs", task_id=uuid.uuid4(), task="Soap", list_name="shopping")
 

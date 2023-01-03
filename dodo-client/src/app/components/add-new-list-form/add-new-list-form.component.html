@@ -1,0 +1,12 @@
+<form [formGroup]="listForm" (ngSubmit)="onSubmit()" class="form">
+    <mat-form-field appearance="fill">
+        <mat-label for="title">Title</mat-label>
+        <input matInput formControlName="title" class="form-control">
+    </mat-form-field>
+
+    <br>
+    
+    <button mat-raised-button color="primary">
+        Create list
+    </button>
+</form>

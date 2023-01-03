@@ -14,6 +14,5 @@ class TasksByDate(Model):
 
     def serialize(self):
         return {'date': self.date, 'userEmail': self.user_email, 'taskId': self.task_id, \
-                'task': self.task, 'completed': self.completed, 'completed_date': self.completed_date }
-
-    
+                'task': self.task, 'completed': self.completed, 'completed_date': self.completed_date } 
+                 

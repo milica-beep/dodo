@@ -1,0 +1,12 @@
+h1 {
+    padding-left: 50%;
+}
+
+mat-list {
+    padding-left: 50%;
+}
+
+.done {
+    text-decoration: line-through;
+    opacity: 0.5;
+  }

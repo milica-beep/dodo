@@ -1,0 +1,26 @@
+<div>
+    <h1>{{ listName }}</h1>
+
+    <mat-list class="container">
+
+        <mat-list-item *ngFor="let t of tasks" >
+            <mat-checkbox [checked]="t['completed']" (change)="this.onChange(t['taskId'])">
+                <span [ngClass]="{done:t['completed']}">{{ t['task'] }}</span>
+            </mat-checkbox>
+        </mat-list-item>
+
+            <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="form">
+                <mat-form-field appearance="fill">
+                    <mat-label for="task">Task</mat-label>
+                    <input matInput placeholder="Add new task" formControlName="task" class="form-control">
+                </mat-form-field>
+            
+                <br>
+                
+                <button mat-raised-button color="primary">
+                    Create new task
+                </button>
+            </form>
+
+    </mat-list>
+</div>

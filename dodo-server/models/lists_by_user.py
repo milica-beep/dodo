@@ -7,3 +7,6 @@ class ListsByUser(Model):
     user_email = columns.Text(primary_key=True)
     list_id = columns.UUID(primary_key=True)
     list_name = columns.Text()
+
+    def serialize(self):
+        return {'userEmail': self.user_email, 'listId': self.list_id, 'listName': self.list_name }

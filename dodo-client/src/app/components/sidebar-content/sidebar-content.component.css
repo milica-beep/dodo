@@ -1,0 +1,18 @@
+.text {
+    font-style: italic;
+    font-size: large;
+
+}
+
+.container {
+    padding-left: 5%;
+    font-size: large;
+}
+
+.list-item {
+    font-size: larger;
+}
+
+.createListForm {
+    padding-left: 10%;
+}

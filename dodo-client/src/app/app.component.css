@@ -1,0 +1,17 @@
+html, body, app-root, .app-frame {
+    overflow: auto;
+    margin: 0;
+    height: 100%;
+    box-sizing: border-box;
+    color: #e0e0e0;
+}
+
+.example-container {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #555;
+}
+
+.sidebar {
+    width: 20%;
+}

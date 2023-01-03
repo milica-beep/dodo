@@ -1,0 +1,23 @@
+<mat-list class="container">
+    <div class="text">
+        My lists
+    </div>    
+    <mat-list-item *ngFor="let l of lists" >
+        <mat-icon matListIcon>fiber_manual_record</mat-icon>
+        <span class="list-item" mat-line [routerLink]="['/list', l['listId'], l['listName']]"> {{ l['listName'] }} </span>
+    </mat-list-item>
+
+    <mat-list-item >
+        <button class="text" mat-raised-button color="primary" (click)="openAddNewListForm()">
+            +New list 
+        </button>
+    </mat-list-item>
+
+    <div *ngIf="showAddNewListForm">
+        <app-add-new-list-form></app-add-new-list-form>
+    </div>
+
+    <mat-list-item>
+        Calendar
+    </mat-list-item>
+</mat-list>
