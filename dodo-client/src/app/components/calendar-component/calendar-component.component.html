@@ -1,4 +1,35 @@
 <mat-card class="demo-inline-calendar-card">
-    <mat-calendar [(selected)]="selected"></mat-calendar>
-  </mat-card>
-  <p>Selected date: {{selected}}</p>
+    <mat-calendar [(selected)]="selectedDate"
+                  (selectedChange)="dateChanged($event)"></mat-calendar>
+</mat-card>
+
+<br>
+
+<div *ngIf="selectedDate">
+  <h1>Selected date: {{selectedDate | date : "dd/MM/y"}}</h1>
+
+  <mat-list class="container">
+    <mat-list-item *ngFor="let t of tasks">
+        <mat-checkbox [checked]="t['completed']" (change)="this.onChange(t['taskId'])">
+            <span [ngClass]="{done:t['completed']}">{{ t['task'] }}</span>
+        </mat-checkbox>
+  
+        <button  matTooltip="Delete task" matTooltipPosition="above" mat-icon-button (click)="removeTask(t)">
+    <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
+    </button>
+    </mat-list-item>
+  
+        <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="form">
+            <mat-form-field appearance="fill">
+                <mat-label for="task">Add new task</mat-label>
+                <input matInput placeholder="Add new task" formControlName="task" class="form-control">
+            </mat-form-field>
+        
+            <br>
+            
+            <button mat-raised-button color="primary">
+                Create new task
+            </button>
+        </form>
+  </mat-list>
+</div>

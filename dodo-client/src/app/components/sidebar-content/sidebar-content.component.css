@@ -16,3 +16,7 @@
 .createListForm {
     padding-left: 10%;
 }
+
+.calendar, .logout {
+    text-decoration:underline;
+}

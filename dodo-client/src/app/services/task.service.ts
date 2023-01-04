@@ -13,8 +13,8 @@ export class TaskService {
     return this.http.get<any>(this.serverUrl + "task/get-lists");
   }
 
-  getTasksByListId(listId: string) {
-    let params = new HttpParams().set("parent", listId);
+  getTasks(parent: string) {
+    let params = new HttpParams().set("parent", parent);
     return this.http.get<any>(this.serverUrl + "task/get-tasks", {params:params});
   }
   
@@ -28,6 +28,10 @@ export class TaskService {
 
   createNewListTask(listId: string, task: string) {
     return this.http.post<any>(this.serverUrl + "task/create-list-task", {'listId': listId, 'task': task});
+  }
+
+  createNewDateTask(date: string, task: string) {
+    return this.http.post<any>(this.serverUrl + "task/create-date-task", {'date': date, 'task': task});
   }
 
   deleteTask(taskId: string, parent: string) {

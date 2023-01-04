@@ -26,7 +26,7 @@ export class TodoListComponent {
     this.route.paramMap.subscribe(params => {
       this.listId = params.get('id');
       this.listName = params.get('name');
-      this.taskService.getTasksByListId(this.listId).subscribe((response) => {
+      this.taskService.getTasks(this.listId).subscribe((response) => {
         this.tasks = response['tasks'];
       })
     });

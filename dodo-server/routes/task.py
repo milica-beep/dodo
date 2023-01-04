@@ -42,6 +42,7 @@ def create_list_task():
     return jsonify({'tasks': [x.serialize() for x in all_tasks]}), 200
 
 @task.route("/task/create-date-task", methods=["POST"])
+@jwt_required()
 def create_date_task():
     req = request.get_json()
 
@@ -61,11 +62,11 @@ def create_date_task():
     if not task:
         return {"task": "This field is required."}, 400
 
-    date = datetime.now()
-
     new_task = TasksByDate.create(date=date, user_email=user_email, task_id=uuid.uuid4(), task=task)
 
-    return {'message':'OK'}, 200
+    all_tasks = TasksByDate.objects(date=date, user_email=user_email)
+
+    return jsonify({'tasks': [x.serialize() for x in all_tasks]}), 200
 
 @task.route("/task/check-task", methods=["PATCH"])
 @jwt_required()

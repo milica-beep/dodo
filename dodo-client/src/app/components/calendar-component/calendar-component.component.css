@@ -3,3 +3,8 @@
     width: 70%;
     margin-top: 5%;
   }
+
+  .done {
+    text-decoration: line-through;
+    opacity: 0.5;
+}

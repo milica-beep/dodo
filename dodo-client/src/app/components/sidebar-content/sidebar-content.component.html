@@ -3,8 +3,8 @@
         My lists
     </div>    
     <mat-list-item *ngFor="let l of lists" >
-        <mat-icon matListIcon>fiber_manual_record</mat-icon>
-        <span class="list-item" mat-line [routerLink]="['/list', l['listId'], l['listName']]"> {{ l['listName'] }} </span>
+        <span>>></span>
+        <span  matTooltip="Go to list" matTooltipPosition="above" class="list-item" mat-line [routerLink]="['/list', l['listId'], l['listName']]"> {{ l['listName'] }} </span>
         
         <button  matTooltip="Delete list" matTooltipPosition="above" mat-icon-button (click)="removeList(l)">
             <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
@@ -12,7 +12,7 @@
     </mat-list-item>
 
     <mat-list-item >
-        <button class="text" mat-raised-button color="primary" (click)="openAddNewListForm()">
+        <button  matTooltip="Create new list" matTooltipPosition="above" class="text" mat-raised-button color="primary" (click)="openAddNewListForm()">
             +New list 
         </button>
     </mat-list-item>
@@ -21,7 +21,11 @@
         <app-add-new-list-form (newListCreated)="onNewListCreated($event)"></app-add-new-list-form>
     </div>
 
-    <mat-list-item>
-        Calendar
+    <mat-list-item [routerLink]="['/calendar']">
+        <span  class="calendar" matTooltip="Go to calendar" matTooltipPosition="above">Calendar</span>
+    </mat-list-item>
+
+    <mat-list-item onclick="logout()">
+        <span  matTooltip="Logout" matTooltipPosition="above" class="logout">Logout</span>
     </mat-list-item>
 </mat-list>
