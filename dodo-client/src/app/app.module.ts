@@ -22,12 +22,17 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptor } from './services/token.interceptor.service';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarContentComponent } from './components/sidebar-content/sidebar-content.component';
 import { TodoListComponent } from './layouts/todo-list/todo-list.component';
 import { AddNewListFormComponent } from './components/add-new-list-form/add-new-list-form.component';
+import { CalendarComponent } from './layouts/calendar/calendar.component';
+import { CalendarComponentComponent } from './components/calendar-component/calendar-component.component';
+import { DateListComponent } from './components/date-list/date-list.component';
 
 
 
@@ -40,7 +45,10 @@ import { AddNewListFormComponent } from './components/add-new-list-form/add-new-
     HeaderComponent,
     SidebarContentComponent,
     TodoListComponent,
-    AddNewListFormComponent
+    AddNewListFormComponent,
+    CalendarComponent,
+    CalendarComponentComponent,
+    DateListComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +69,8 @@ import { AddNewListFormComponent } from './components/add-new-list-form/add-new-
     MatSidenavModule,
     MatListModule,
     MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [
     {

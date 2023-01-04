@@ -15,13 +15,23 @@ export class SidebarContentComponent {
   ngOnInit(): void {
     this.taskService.getLists().subscribe((response) => {
       this.lists = response['lists'];
-
-      console.log(this.lists)
     })
   }
 
   openAddNewListForm() {
     this.showAddNewListForm = !this.showAddNewListForm;
+  }
+
+  removeList(list: any) {
+    this.taskService.deleteList(list['listId']).subscribe(response => {
+      this.lists = response['lists'];
+    })
+  }
+
+  onNewListCreated(event: any) {
+    this.taskService.getLists().subscribe((response) => {
+      this.lists = response['lists'];
+    })
   }
 
 }

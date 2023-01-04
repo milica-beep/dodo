@@ -140,16 +140,20 @@ def edit_task():
     return jsonify({'task': dict(task)}), 200
 
 @task.route("/task/delete-task", methods=["DELETE"])
+@jwt_required()
 def delete_task():
-    req = request.get_json()
+    #req = request.get_json()
 
-    task_id = req["taskId"]
-    parent = req["parent"]
+    # task_id = req["taskId"]
+    # parent = req["parent"]
 
-    #user_email = get_jwt_identity() 
+    task_id = request.args.get('taskId')
+    parent = request.args.get('parent')
+
+    user_email = get_jwt_identity() 
 
     # for testing purposes
-    user_email = "milica@elfak.rs"
+    #user_email = "milica@elfak.rs"
 
     if not task_id:
         return {"task_id": "This field is required."}, 400
@@ -167,7 +171,12 @@ def delete_task():
 
     task.delete()
 
-    return jsonify({'message': "Task is successfully deleted"}), 200
+    if is_date(parent):
+        tasks = TasksByDate.objects(date=parent, user_email=user_email)
+    else:
+        tasks = TasksByListId.objects(list_id=parent, user_email=user_email)
+
+    return jsonify({'tasks': [x.serialize() for x in tasks]}), 200
 
 @task.route("/task/get-tasks", methods=["GET"])
 @jwt_required()
@@ -221,6 +230,32 @@ def create_list():
     new_list = ListsByUser.create(list_name=list_name, user_email=user_email, list_id=uuid.uuid4())
 
     return jsonify({'list': new_list.serialize()}), 200
+
+@task.route("/task/delete-list", methods=["DELETE"])
+@jwt_required()
+def delete_list():
+    #req = request.get_json()
+
+    # task_id = req["taskId"]
+    # parent = req["parent"]
+
+    list_id = request.args.get('listId')
+
+    user_email = get_jwt_identity() 
+
+    # for testing purposes
+    #user_email = "milica@elfak.rs"
+
+    if not list_id:
+        return {"list_id": "This field is required."}, 400
+
+    list = ListsByUser.objects(user_email=user_email, list_id=list_id).first()
+
+    list.delete()
+
+    lists = ListsByUser.objects(user_email=user_email)
+
+    return jsonify({'lists': [x.serialize() for x in lists]}), 200
 
 
 def is_date(string, fuzzy=False):

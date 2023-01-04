@@ -1,12 +1,18 @@
 <div>
     <h1>{{ listName }}</h1>
+<mat-card>
+
 
     <mat-list class="container">
 
-        <mat-list-item *ngFor="let t of tasks" >
+        <mat-list-item *ngFor="let t of tasks">
             <mat-checkbox [checked]="t['completed']" (change)="this.onChange(t['taskId'])">
                 <span [ngClass]="{done:t['completed']}">{{ t['task'] }}</span>
             </mat-checkbox>
+
+            <button  matTooltip="Delete task" matTooltipPosition="above" mat-icon-button (click)="removeTask(t)">
+				<mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
+		    </button>
         </mat-list-item>
 
             <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="form">
@@ -23,4 +29,6 @@
             </form>
 
     </mat-list>
+
+</mat-card>
 </div>

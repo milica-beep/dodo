@@ -57,5 +57,11 @@ export class TodoListComponent {
                       this.tasks = response['tasks'];
                     })
   }
+
+  removeTask(task: TaskByListId) {
+    this.taskService.deleteTask(task.taskId, this.listId).subscribe(response => {
+      this.tasks = response['tasks'];
+    })
+  }
 }
 

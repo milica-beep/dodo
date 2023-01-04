@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TaskService } from 'src/app/services/task.service';
@@ -10,6 +10,7 @@ import { TaskService } from 'src/app/services/task.service';
 })
 export class AddNewListFormComponent {
   listForm!: FormGroup;
+  @Output() newListCreated: EventEmitter<any> = new EventEmitter();
 
   constructor(private formBuilder: FormBuilder,
               private taskService: TaskService,
@@ -31,7 +32,8 @@ export class AddNewListFormComponent {
     this.taskService.createNewList(this.f["title"].value)
                     .subscribe(response => {
                       let new_list = response['list'];
-                      this.router.navigateByUrl('/list/'+new_list['listId']);
+                      this.router.navigateByUrl('/list/'+new_list['listId']+'/'+new_list['listName']);
+                      this.newListCreated.emit(null);
                     })
   }
 

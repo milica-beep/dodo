@@ -29,4 +29,15 @@ export class TaskService {
   createNewListTask(listId: string, task: string) {
     return this.http.post<any>(this.serverUrl + "task/create-list-task", {'listId': listId, 'task': task});
   }
+
+  deleteTask(taskId: string, parent: string) {
+    let params = new HttpParams().set("taskId", taskId)
+                                 .set("parent", parent);
+    return this.http.delete<any>(this.serverUrl + 'task/delete-task', {params:params});
+  }
+
+  deleteList(listId: string) {
+    let params = new HttpParams().set("listId", listId)
+    return this.http.delete<any>(this.serverUrl + 'task/delete-list', {params:params});
+  }
 }
