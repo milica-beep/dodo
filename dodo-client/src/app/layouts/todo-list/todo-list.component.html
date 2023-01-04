@@ -1,10 +1,7 @@
 <div>
     <h1>{{ listName }}</h1>
 <mat-card>
-
-
     <mat-list class="container">
-
         <mat-list-item *ngFor="let t of tasks">
             <mat-checkbox [checked]="t['completed']" (change)="this.onChange(t['taskId'])">
                 <span [ngClass]="{done:t['completed']}">{{ t['task'] }}</span>
@@ -27,8 +24,6 @@
                     Create new task
                 </button>
             </form>
-
     </mat-list>
-
 </mat-card>
 </div>
