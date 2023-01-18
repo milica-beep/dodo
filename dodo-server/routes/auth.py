@@ -55,8 +55,6 @@ def login():
 
     existing_user = User.objects(email=email).first()
 
-    print("Existing user breeeeeee", existing_user)
-
     if not existing_user:
         return jsonify({"message": "The email you entered is not connected to any account."}), 422
 
@@ -67,3 +65,10 @@ def login():
         return resp, 200
     else:
         return jsonify({"message": "Wrong data"}), 422
+
+@auth.route('/auth/current-user', methods=['GET'])
+@jwt_required()
+def current_user():
+    user_id = get_jwt_identity()
+    existing_user = User.objects(email=user_id).first()
+    return jsonify(existing_user.serialize()), 200

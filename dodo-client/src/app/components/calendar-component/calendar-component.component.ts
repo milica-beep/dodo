@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatCalendar } from '@angular/material/datepicker';
 import { ActivatedRoute } from '@angular/router';
@@ -12,7 +12,7 @@ import { TaskService } from 'src/app/services/task.service';
   styleUrls: ['./calendar-component.component.css']
 })
 export class CalendarComponentComponent {
-  selectedDate!: Date;
+  @Input('selectedDate') selectedDate!: Date;
   tasks: TaskByDate[] = [];
   taskForm!: FormGroup;
 

@@ -33,6 +33,7 @@ import { AddNewListFormComponent } from './components/add-new-list-form/add-new-
 import { CalendarComponent } from './layouts/calendar/calendar.component';
 import { CalendarComponentComponent } from './components/calendar-component/calendar-component.component';
 import { DateListComponent } from './components/date-list/date-list.component';
+import { LandingPageComponent } from './layouts/landing-page/landing-page.component';
 
 
 
@@ -48,7 +49,8 @@ import { DateListComponent } from './components/date-list/date-list.component';
     AddNewListFormComponent,
     CalendarComponent,
     CalendarComponentComponent,
-    DateListComponent
+    DateListComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,

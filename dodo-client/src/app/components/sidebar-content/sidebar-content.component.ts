@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { TaskService } from 'src/app/services/task.service';
 
 @Component({
@@ -10,7 +12,9 @@ export class SidebarContentComponent {
   lists = [];
   showAddNewListForm: boolean = false;
 
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService,
+              private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.taskService.getLists().subscribe((response) => {
@@ -35,7 +39,8 @@ export class SidebarContentComponent {
   }
 
   logout() {
-    
+    this.authService.logout();
+    this.router.navigateByUrl('');
   }
 
 }

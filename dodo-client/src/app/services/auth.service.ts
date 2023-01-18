@@ -22,6 +22,10 @@ export class AuthService {
       return response;
     }))
   }
+
+  logout() {
+    localStorage.removeItem('accessToken');
+  }
   
   register(name:string, lastname:string, email:string, password:string) {
     let new_user = {

@@ -7,3 +7,6 @@ class User(Model):
     name = columns.Text()
     lastname = columns.Text()
     password = columns.Text()
+
+    def serialize(self):
+        return {'email': self.email, 'name': self.name, 'lastname': self.lastname, 'password': self.password }
