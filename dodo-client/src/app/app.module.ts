@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './layouts/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { DatePipe } from '@angular/common';
 
 import { MatTabsModule  } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
@@ -75,6 +76,7 @@ import { LandingPageComponent } from './layouts/landing-page/landing-page.compon
     MatNativeDateModule,
   ],
   providers: [
+    DatePipe,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

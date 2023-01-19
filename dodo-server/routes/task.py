@@ -34,8 +34,7 @@ def create_list_task():
     
     list_obj = ListsByUser.objects(list_id=list_id, user_email=user_email).first()
 
-    new_task = TasksByListId.create(list_id=list_id, user_email=user_email, task_id=uuid.uuid4(), task=task, \
-                                    list_name=list_obj['list_name'])
+    new_task = TasksByListId.create(list_id=list_id, user_email=user_email, task_id=uuid.uuid4(), task=task)
 
     all_tasks = TasksByListId.objects(list_id=list_id, user_email=user_email)
 
@@ -105,6 +104,7 @@ def check_task():
     return jsonify({'task': task.serialize()}), 200
 
 @task.route("/task/edit-task", methods=["PATCH"])
+@jwt_required()
 def edit_task():
     req = request.get_json()
 
@@ -112,10 +112,7 @@ def edit_task():
     parent = req["parent"]
     new_title = req["newTitle"]
 
-    #user_email = get_jwt_identity() 
-
-    # for testing purposes
-    user_email = "milica@elfak.rs"
+    user_email = get_jwt_identity() 
 
     if not task_id:
         return {"task_id": "This field is required."}, 400
@@ -143,18 +140,10 @@ def edit_task():
 @task.route("/task/delete-task", methods=["DELETE"])
 @jwt_required()
 def delete_task():
-    #req = request.get_json()
-
-    # task_id = req["taskId"]
-    # parent = req["parent"]
-
     task_id = request.args.get('taskId')
     parent = request.args.get('parent')
 
     user_email = get_jwt_identity() 
-
-    # for testing purposes
-    #user_email = "milica@elfak.rs"
 
     if not task_id:
         return {"task_id": "This field is required."}, 400
@@ -186,17 +175,12 @@ def get_tasks():
 
     user_email = get_jwt_identity() 
 
-    # for testing purposes
-    #user_email = "milica@elfak.rs"
-
     if not parent:
         return {"parent": "This field is required."}, 400
 
     if is_date(parent):
-        print("dateeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
         tasks = TasksByDate.objects(date=parent, user_email=user_email)
     else:
-        print("listaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
         tasks = TasksByListId.objects(list_id=parent, user_email=user_email)
 
     return jsonify({'tasks': [x.serialize() for x in tasks]}), 200
@@ -205,9 +189,6 @@ def get_tasks():
 @jwt_required()
 def get_lists():
     user_email = get_jwt_identity() 
-
-    # for testing purposes
-    #user_email = "milica@elfak.rs"
 
     lists = ListsByUser.objects(user_email=user_email)
 
@@ -222,9 +203,6 @@ def create_list():
 
     user_email = get_jwt_identity()
 
-    # # for testing purposes
-    # user_email = "milica@elfak.rs"
-
     if not list_name:
         return {"listName": "This field is required."}, 400
 
@@ -235,17 +213,9 @@ def create_list():
 @task.route("/task/delete-list", methods=["DELETE"])
 @jwt_required()
 def delete_list():
-    #req = request.get_json()
-
-    # task_id = req["taskId"]
-    # parent = req["parent"]
-
     list_id = request.args.get('listId')
 
     user_email = get_jwt_identity() 
-
-    # for testing purposes
-    #user_email = "milica@elfak.rs"
 
     if not list_id:
         return {"list_id": "This field is required."}, 400

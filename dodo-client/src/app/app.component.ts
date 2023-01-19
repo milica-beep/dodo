@@ -17,19 +17,11 @@ export class AppComponent {
   ngOnInit() {
     this.router.events.subscribe(val => {
       if(val instanceof NavigationEnd) {
-        if(val['url'] == '/home' || val['url'] == '/') {
           this.authService.getCurrentUser().subscribe({
             error: (e) => this.opened = false,
             complete: () => this.opened = true 
           });
         }
-
-      }
     })
-
-    // this.authService.getCurrentUser().subscribe({
-    //   error: (e) => this.opened = false,
-    //   complete: () => this.opened = true 
-    // });
   }
 }

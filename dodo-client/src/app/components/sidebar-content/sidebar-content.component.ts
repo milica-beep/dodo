@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { TaskService } from 'src/app/services/task.service';
 
@@ -19,6 +19,16 @@ export class SidebarContentComponent {
   ngOnInit(): void {
     this.taskService.getLists().subscribe((response) => {
       this.lists = response['lists'];
+    })
+
+    this.router.events.subscribe(val => {
+      if(val instanceof NavigationEnd) {
+
+          this.taskService.getLists().subscribe((response) => {
+            this.lists = response['lists'];
+          })
+        
+      }
     })
   }
 
