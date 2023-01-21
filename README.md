@@ -3,16 +3,17 @@ Dodo je aplikacija namenjena svakodnevnoj organizaciji obaveza kroz to-do liste.
 
 ## Instalacija
 
-*Backend
+## Backend
 
 Python verzija: 3.10.0
 
 Cassandra verzija: 4.0.4
 
 Pokretanje:
-1. Instalacija potrebnih modula
-
+1. Instalacija potrebnih modula korišćenjem [pip] https://pip.pypa.io/en/stable/ packet manager-a
+	```bash
 	pip install -r requirements.txt
+	```
 
 2. Kreiranje i dodavanje podataka u bazu:
 
