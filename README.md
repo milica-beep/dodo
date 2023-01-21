@@ -3,6 +3,7 @@ Pokretanje projekta
 *Backend
 
 Python verzija: 3.10.0
+
 Cassandra verzija: 4.0.4
 
 Pokretanje:
@@ -19,7 +20,7 @@ Pokretanje:
 	python app.py
 
 *Frontend
-1. Instalacija Node.js-a i npm-a
+1. Instalacija Node.js-a i npm-a https://nodejs.org/en/download/
 2. Instalacija Angular framework-a
 
 	-npm install -g @angular/cli
