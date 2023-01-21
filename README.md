@@ -16,13 +16,13 @@ Pokretanje:
 	```
 
 2. Kreiranje i dodavanje podataka u bazu:
-```bash
+	```bash
 	python create_and_populate_db.py
-```
+	```
 3. Pokretanje aplikacije: 
-```bash
+	```bash
 	python app.py
-```
+	```
 *Frontend
 1. Instalacija Node.js-a i npm-a https://nodejs.org/en/download/
 2. Instalacija Angular framework-a
