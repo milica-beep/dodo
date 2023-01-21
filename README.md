@@ -23,7 +23,7 @@ Pokretanje:
 	```
 ## Frontend
 1. Instalacija Node.js-a i npm-a (https://nodejs.org/en/download/)
-2. Instalacija Angular framework-a
+2. Instalacija Angular framework-a korišćenjem npm packet manager-a
 	```bash
 	-npm install -g @angular/cli
 	```
