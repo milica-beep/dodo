@@ -1,5 +1,7 @@
 Pokretanje projekta
+
 *Backend
+
 Python verzija: 3.10.0
 Cassandra verzija: 4.0.4
 
