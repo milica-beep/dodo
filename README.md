@@ -3,9 +3,9 @@ Dodo je aplikacija namenjena svakodnevnoj organizaciji obaveza kroz to-do liste.
 
 ## Backend
 
-Python verzija: 3.10.0
+*Verzija Python-a 3.10.0*
 
-Cassandra verzija: 4.0.4
+*Verzija Cassandre 4.0.4*
 
 Pokretanje:
 1. Instalacija potrebnih modula korišćenjem pip packet manager-a
