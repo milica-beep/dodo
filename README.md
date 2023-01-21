@@ -1,8 +1,6 @@
 # Dodo
 Dodo je aplikacija namenjena svakodnevnoj organizaciji obaveza kroz to-do liste.
 
-## Instalacija
-
 ## Backend
 
 Python verzija: 3.10.0
