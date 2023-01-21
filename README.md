@@ -1,7 +1,7 @@
 # Dodo
 Dodo je aplikacija namenjena svakodnevnoj organizaciji obaveza kroz to-do liste.
 
-Pokretanje projekta
+## Instalacija
 
 *Backend
 
