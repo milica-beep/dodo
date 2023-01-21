@@ -23,11 +23,13 @@ Pokretanje:
 	```bash
 	python app.py
 	```
-*Frontend
-1. Instalacija Node.js-a i npm-a https://nodejs.org/en/download/
+## Frontend
+1. Instalacija Node.js-a i npm-a (https://nodejs.org/en/download/)
 2. Instalacija Angular framework-a
-
+	```bash
 	-npm install -g @angular/cli
+	```
 3. Pokretanje aplikacije
-
+	```bash
 	-ng serve --open
+	```
