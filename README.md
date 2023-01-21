@@ -1,5 +1,5 @@
 # Dodo
-Dodo je aplikacija namenjena svakodnevnoj organizaciji obaveza kroz to-do liste.
+Dodo je aplikacija namenjena svakodnevnoj organizaciji obaveza kroz to-do liste. Razvijena korišćenjem *Flask* i *Angular* okruženja.
 
 ## Backend
 
