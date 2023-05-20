@@ -1,33 +1,32 @@
 # Dodo
-Dodo je aplikacija namenjena svakodnevnoj organizaciji obaveza kroz to-do liste. Razvijena je korišćenjem *Flask* i *Angular* okruženja i Cassandra baze podataka.
+Dodo is an application meant for everyday organization of tasks through to-do lists. It is developed using *Flask* and *Angular* frameworks as well as *Cassandra* database.
 
 ## Backend
 
-*Verzija Python-a 3.10.0*
+*Python 3.10.0*
 
-*Verzija Cassandre 4.0.4*
+*Cassandra 4.0.4*
 
-Pokretanje:
-1. Instalacija potrebnih modula korišćenjem pip packet manager-a
+1. Installation of python modules using *pip*
 	```bash
 	pip install -r requirements.txt
 	```
 
-2. Kreiranje i dodavanje podataka u bazu:
+2. Populate database:
 	```bash
 	python create_and_populate_db.py
 	```
-3. Pokretanje aplikacije: 
+3. Run app: 
 	```bash
 	python app.py
 	```
 ## Frontend
-1. Instalacija Node.js-a i npm-a (https://nodejs.org/en/download/)
-2. Instalacija Angular framework-a korišćenjem npm packet manager-a
+1. Node.js and npm installationn (https://nodejs.org/en/download/)
+2. Installation of Angular using npm
 	```bash
 	npm install -g @angular/cli
 	```
-3. Pokretanje aplikacije
+3. Run app
 	```bash
 	ng serve --open
 	```
