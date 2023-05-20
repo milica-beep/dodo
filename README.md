@@ -21,7 +21,7 @@ Dodo is an application meant for everyday organization of tasks through to-do li
 	python app.py
 	```
 ## Frontend
-1. Node.js and npm installationn (https://nodejs.org/en/download/)
+1. Node.js and npm installation (https://nodejs.org/en/download/)
 2. Installation of Angular using npm
 	```bash
 	npm install -g @angular/cli
